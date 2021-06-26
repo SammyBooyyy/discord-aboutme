@@ -6,16 +6,21 @@ import requests
 def aboutMe():
     token = input(F.RED + 'Token > ')
     clear()
-    bio = input(F.RED + 'O que queres colocar na bio? > ')
+    bio = input(F.RED + 'O que queres colocar na bio? (separa com virgulas) > ')
+    lista = bio.split(',')
     site = 'https://discord.com/api/v9/users/@me'
-    headers = {
-        'Authorization': token
-    }
-    json ={
-        'bio': bio
-    }
-    r = requests.patch(site, headers=headers, json=json)
-    print(r)
+    while True:
+        for a in lista:
+            headers = {
+                'Authorization': token
+            }
+            json ={
+                'bio': a
+            }
+            r = requests.patch(site, headers=headers, json=json)
+            print(r)
+            time.sleep(5)
+
     
     
 def clear():
