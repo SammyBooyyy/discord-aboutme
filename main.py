@@ -1,6 +1,7 @@
 from colorama import Fore as F
 import os
 import requests
+import time
 
 
 def aboutMe():
